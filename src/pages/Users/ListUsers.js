@@ -20,15 +20,24 @@ export default function ListUsers (){
         const res = await axios.get('http://localhost:3333/users')
         const usersList = res.data
         setUsers(usersList)
-        setLoading(false)
-       
+        setLoading(false)       
 
     }
 
    
-    //Taking the Id User
-    const handleDeleteUsere = (userId) => {
-        alert(userId)
+    //Taking the Id Use
+     const handleDeleteUser = async (userId) => {
+        /* alert(userId) */
+        //const res = await axios.get('https://first-api-rafael.herokuapp.com/users/'+userId)
+        await axios.delete('http://localhost:3333/users/'+userId)
+        .then(response => {
+            if(response.data != null) {
+                alert('Usuário deletado com sucesso!')
+                handleListAllUseres()
+            }
+        })
+        
+
     }
     
 
@@ -64,7 +73,7 @@ export default function ListUsers (){
                             <td> 
                                 <BtnPgListar>Visualizar</BtnPgListar>
                                 <BtnPgListar>Editar</BtnPgListar>
-                                <BtnPgListar onClick={() => handleDeleteUsere(user.id)} >Deletar</BtnPgListar>
+                                <BtnPgListar onClick={() => handleDeleteUser(user.id)} >Deletar</BtnPgListar>
                             </td>
                         </tr>
                        ) ) 
