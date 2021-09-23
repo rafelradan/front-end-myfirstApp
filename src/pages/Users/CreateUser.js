@@ -7,6 +7,7 @@ import {useHistory} from 'react-router-dom'
 
 import { TitleH3, Frm, BtnCreate, InpFrmCreate } from './Style'
 import MenusBar from "../../Components/MenusBar/MenusBar"
+import { Container } from "../../Components/Container/Container"
 
 
 export default function CreateUser(){
@@ -59,20 +60,22 @@ export default function CreateUser(){
     return(
         <>
             <MenusBar />
-                <Frm onSubmit={handleGoToDashboard} > 
-                    <TitleH3> Criar um novo usuário </TitleH3>
-                    
-                    
-                        <label>Nome do Usuário</label> <br />
-                        <InpFrmCreate type= "text" name="inpUserName" id="inpUserName" onChange={valorInput} /> <br />
+                <Container>
+                    <Frm onSubmit={handleGoToDashboard} > 
+                        <TitleH3> Criar um novo usuário </TitleH3>
+                        
+                        
+                            <label>Nome do Usuário</label> <br />
+                            <InpFrmCreate type= "text" name="inpUserName" id="inpUserName" onChange={valorInput} /> <br />
 
-                        <label>E-mail do Usuário</label> <br />
-                        <InpFrmCreate type="email" name="inpUserEmail" id="inpUserEmail" onChange={valorInput}  /> <br />
+                            <label>E-mail do Usuário</label> <br />
+                            <InpFrmCreate type="email" name="inpUserEmail" id="inpUserEmail" onChange={valorInput}  /> <br />
 
-                        <BtnCreate type="submit" onClick={handleCreateUseres} >Cadastar</BtnCreate>
-                    
-                    
-                </Frm>
+                            <BtnCreate type="submit" onClick={handleCreateUseres} >Cadastar</BtnCreate>
+                        
+                        
+                    </Frm>
+                </Container>
         </>
     )
     
