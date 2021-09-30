@@ -1,15 +1,11 @@
-import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {useHistory} from 'react-router-dom'
-
-
 
 
 import MenusBar from "../../Components/MenusBar/MenusBar";
 import { Container } from "../../Components/Container/Container";
-import { BtnPgListar, TblPgListar, BtnListar, TitleH3 } from './Style'
-
-
+import { BtnPgListar, TblPgListar, TitleH3 } from './Style'
+import api from "../../services/api";
 
 
 
@@ -22,33 +18,34 @@ export default function ListUsers (){
     async function handleListAllUseres(){
         setLoading(true)
         //const res = await axios.get('https://first-api-rafael.herokuapp.com/users')
-        const res = await axios.get('http://localhost:3333/users')
+        const res = await api.get('/users')
         const usersList = res.data
         setUsers(usersList)
         setLoading(false)       
-
     }
-
    
     //Taking the Id Use
-     const handleDeleteUser = async (userIdDel) => {
-        /* alert(userId) */
-        //await axios.delete('https://first-api-rafael.herokuapp.com/users/'+userIdDel)
-        await axios.delete('http://localhost:3333/users/'+userIdDel)
-        .then(response => {
-            if(response.data != null) {
-                alert('Usuário deletado com sucesso!')
-                handleListAllUseres()
+    async function handleDeleteUser(userIdDel) {
+        if(window.confirm("Você deseja realmente excluir esse usuário?")){
+            try {
+                await api.delete('/users/'+userIdDel)
+                handleListAllUseres() 
+                alert('Usuário deletado com sucesso!') 
+            } catch (error) {
+                alert('Erro ao tentar deletar o usuário!')
             }
-        })        
-
+        }        
     }
 
-    const goEdit = async (userIdEdi) => {             
-      await  history.push('/edituser/'+userIdEdi)
+    
+
+    function goEdit(userIdEdi) {             
+      history.push('/edituser/'+userIdEdi)
     }
 
-     
+    useEffect(() =>{
+        handleListAllUseres()  
+    },[])
 
     return(
         <>
@@ -56,7 +53,6 @@ export default function ListUsers (){
 
         <Container>
             <TitleH3>Listar Usuários</TitleH3> 
-            <BtnListar onClick={handleListAllUseres} > Listar os Usuários </BtnListar>
 
             {
                 loading && <p>Carregando...</p>
@@ -67,7 +63,10 @@ export default function ListUsers (){
                     <tr style={{textAlign: "center"}}>
                         <th>ID</th>
                         <th>Nome</th>
+                        <th>CPF</th>
                         <th>E-mail</th>
+                        <th>Cidade</th>
+                        <th>Genero</th>
                         <th>Ação</th>
                     </tr>
                 </thead>
@@ -78,7 +77,10 @@ export default function ListUsers (){
                             {/* <td key={user.id} > {user.id} {user.name}, {user.email} </td> */}
                             <td>{user.id}</td>
                             <td>{user.name}</td>
+                            <td>{user.cpf} </td>
                             <td>{user.email} </td>
+                            <td>{user.city} </td>
+                            <td>{user.gender} </td>
                             <td> 
                                 <BtnPgListar>Visualizar</BtnPgListar>
                                 <BtnPgListar onClick={() => goEdit(user.id)} > Editar</BtnPgListar>

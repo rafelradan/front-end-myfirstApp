@@ -1,11 +1,12 @@
-/* import axios from "axios"; */
-import axios from "axios";
 import { useEffect, useState } from "react";
-
+import {useHistory} from 'react-router-dom'
 
 import { Container } from "../../Components/Container/Container";
+import MaskedInp from "../../Components/MaskedInput/MaskedInput";
 import MenusBar from "../../Components/MenusBar/MenusBar";
-import { Frm, TitleH3, InpFrmCreate, BtnCreate } from "./Style";
+import api from "../../services/api";
+import { Frm, TitleH3, InpFrmCreate, BtnCreate, InpFrmCreateName, SelectFrmCreate } from "./Style";
+
 
 
 
@@ -14,44 +15,42 @@ export default function EditUser (props)  {
     //Pegando o ID que foi enviado após cliclar no Btn Editar da pagina de listagem
      const [id] =  useState(props.match.params.id) 
     
-    
+     const [name, setName] = useState('')
+     const [cpf, setCpf] = useState('')
+     const [email, setEmail] = useState('')
+     const [city, setCity] = useState('')
+     const [gender, setGender] = useState('')
+
+     const history = useHistory()
 
     //useEffect é executado quando a pagina é carregada ou atualizada
      useEffect(() =>{
         async function oldUserValue() {
             //const res = await axios.get('https://first-api-rafael.herokuapp.com/users/'+id)
-               const user = await axios.get('http://localhost:3333/users/'+id)
+               const user = await api.get('/users/'+id)
                const userEdit = user.data
-               document.querySelector("#inpUserName").value =userEdit.name
-               document.querySelector("#inpUserEmail").value =userEdit.email
-                
+               setName(userEdit.name)
+               setCpf(userEdit.cpf)
+               setEmail(userEdit.email)
+               setCpf(userEdit.city)
+               setGender(userEdit.gender)
+               console.log(userEdit)
             }
             oldUserValue()
-     })
+     },[id])
 
-        const [userNewValue, setUserNewValue] = useState({
-            username:'',
-            useremail:''
-        })
-    //Ainda não esta funcionando direito   INICIO
-    const handleUpdate = async e => {
-        const  valuename = await document.querySelector("#inpUserName")
-        const  valueemail = document.querySelector("#inpUserEmail")
-        const resultname = valuename.value
-        const resultemail = valueemail.value
-            
-        
-
-            setUserNewValue({
-                username:resultname,
-                useremail:resultemail,
-            })
-            
-            console.log(userNewValue.username)
+        //Essa será a função para salvar os novos dados
+        async function saveData(e){
+            e.preventDefault() 
+          try {
+              await api.put('/users/'+id,{name, cpf, email, city, gender})
+              alert('Usuário atualizado com sucesso!')
+              history.push('/listusers')
+          } catch (error) {
+              console.log('Error: Não foi possível cadastrar o usuário');
+          }
             
         }
-    //Ainda não esta funcionando FIM  
-
 
     return(
         <>
@@ -61,14 +60,26 @@ export default function EditUser (props)  {
                     <Frm  > 
                         <TitleH3> Editar usuário </TitleH3>
                         
-                        
-                            <label>Nome do Usuário</label> <br />
-                            <InpFrmCreate type= "text" name="inpUserName" id="inpUserName"  /> <br />
+                        <label>Nome do Usuário</label> <br />
+                        <InpFrmCreateName type= "text" name="inpUserName" id="inpUserName" value={name} onChange={e => setName(e.target.value)} /> <br />
 
-                            <label>E-mail do Usuário</label> <br />
-                            <InpFrmCreate type="email" name="inpUserEmail" id="inpUserEmail"   /> <br />
+                        <label>CPF do Usuário</label> <br />
+                        <MaskedInp type= "text"  value={cpf} onChange={e => setCpf(e.target.value)} /> <br />
 
-                            <BtnCreate type="submit" onClick={handleUpdate} >Atualizar</BtnCreate>
+                        <label>E-mail do Usuário</label> <br />
+                        <InpFrmCreate type="email" name="inpUserEmail" id="inpUserEmail" value={email} onChange={e => setEmail(e.target.value)}  /> <br />
+
+                        <label>Cidade do Usuário</label><br />
+                        <InpFrmCreate type="text" name="inpUserCity" id="inpUserCity" value={city} onChange={e => setCity(e.target.value)} /> <br />
+
+                        <label> Genero do Usuário </label> <br />
+                        <SelectFrmCreate id="userGender" onChange={e => setGender(e.target.value)} > 
+                            <option SelectFrmCreateed selected disabled value={gender}  >Esolha aqui!</option>    
+                            <option>Masculino</option>
+                            <option>Feminino</option>
+                        </SelectFrmCreate> <br /> <br />
+
+                            <BtnCreate type="submit" onClick={saveData} >Atualizar</BtnCreate>
                                     
                     </Frm>
 

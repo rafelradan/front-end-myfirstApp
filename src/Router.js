@@ -1,6 +1,6 @@
 import {Switch, Route} from 'react-router-dom'
 
-import Users from './pages/Users'
+
 import Books from './pages/Books'
 import CreateUser from './pages/Users/CreateUser';
 import ListUsers from './pages/Users/ListUsers';
@@ -10,7 +10,7 @@ import Dashboard from './pages/Dashboard/dashboard';
 export default function Routes(){
     return(
         <Switch>
-            <Route path='/' exact component={Users} />
+            <Route path='/' exact component={Dashboard} />
             <Route path='/books'  component={Books} />
             <Route path='/dashboard'  component={Dashboard} />
             <Route path='/createuser' component={CreateUser} />
