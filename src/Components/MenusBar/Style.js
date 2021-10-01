@@ -1,12 +1,5 @@
 import styled from "styled-components";
 
-export const SesaoTop = styled.section`
-  background-color: #2F4F4F;
-  width: auto;
-  height: 3em;
-  
-`;
-
 export const Menus = styled.ul`
   display: flex; //Para mostrar o conteúndo em unica linha
   background-color: #2F4F4F;

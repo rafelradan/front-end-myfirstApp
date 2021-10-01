@@ -3,7 +3,7 @@ import { useState } from "react"
 import {useHistory} from 'react-router-dom'
 
 
-import { TitleH3, Frm, BtnCreate, InpFrmCreate, SelectFrmCreate, InpFrmCreateName } from './Style'
+import { TitleFrm, Frm, BtnCreate, InpFrmCreate, SelectFrmCreate, InpFrmCreateName, Body } from './Style'
 import MenusBar from "../../Components/MenusBar/MenusBar"
 import { Container } from "../../Components/Container/Container"
 import api from "../../services/api"
@@ -38,37 +38,37 @@ export default function CreateUser(){
     
 
     return(
-        <>
+        <Body>
         <MenusBar />
             <Container>
                 <Frm onSubmit={handleGoToDashboard} > 
-                    <TitleH3> Cadastrar um novo usuário </TitleH3>
+                    <TitleFrm> Cadastrar um novo usuário </TitleFrm>
                     
-                        <label>Nome do Usuário</label> <br />
+                        <label>Nome</label> <br />
                         <InpFrmCreateName type= "text" name="inpUserName" id="inpUserName" value={name} onChange={e => setName(e.target.value)} /> <br />
 
-                        <label>CPF do Usuário</label> <br />
+                        <label>CPF</label> <br />
                         <MaskedInp type= "text"  value={cpf} onChange={e => setCpf(e.target.value)} /> <br />
 
-                        <label>E-mail do Usuário</label> <br />
+                        <label>E-mail</label> <br />
                         <InpFrmCreate type="email" name="inpUserEmail" id="inpUserEmail" value={email} onChange={e => setEmail(e.target.value)}  /> <br />
 
-                        <label>Cidade do Usuário</label><br />
+                        <label>Cidade</label><br />
                         <InpFrmCreate type="text" name="inpUserCity" id="inpUserCity" value={city} onChange={e => setCity(e.target.value)} /> <br />
 
-                        <label> Genero do Usuário </label> <br />
+                        <label> Genero</label> <br />
                         <SelectFrmCreate id="userGender" onChange={e => setGender(e.target.value)} > 
                             <option SelectFrmCreateed selected disabled value={gender}  >Esolha aqui!</option>    
                             <option>Masculino</option>
                             <option>Feminino</option>
                         </SelectFrmCreate> <br /> <br />
 
-                        <BtnCreate type="submit" onClick={handleCreateUseres} >Cadastar</BtnCreate>
+                        <BtnCreate type="submit" onClick={handleCreateUseres} >Cadastrar</BtnCreate>
                         <br /> <br />
 
                 </Frm>
             </Container>
-        </>
+        </Body>
     )
     
 }

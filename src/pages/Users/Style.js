@@ -1,27 +1,52 @@
 import styled from "styled-components";
 
 
+export const Body = styled.body`
+margin: 0;
+min-height: 100vh;
+min-width: 100vw;
+background: linear-gradient(185deg, #d8f5ed, #044e2f);
+
+`;
+
+
 export const TitleH3 = styled.h3`
-  font-size: 1.9em;
-  color: #2F4F4F;
+  font-size: 1.3em;
+  color: 	#1C1C1C;
   margin-top: 20px;
   margin-bottom: 30px;
+  margin-left: 30px;
+`;
+
+export const TitleFrm = styled.h3`
+  font-size: 1.3em;
+  color: 	#1C1C1C;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  margin-left: 19%;
+ 
 `;
 
 
 
 export const Frm = styled.form`
-    width: 400px;
+    width: 450px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
-    
+    /* border: solid 1px #1C1C1C; */
+
+    background: white;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
+
 `;
 
 export const BtnCreate = styled.button`
 margin-top: 10px;
 font-size: 1em;
-width: 250px;
+width: 100%;
 background-color: #fff;
 color: #198754;
 border: 1px solid #198754;
@@ -53,6 +78,7 @@ width: 250px;
 height: 30px;
 color: #363636;
 padding-left: 5px;
+outline: none;
 `;
 
 export const InpFrmCreateName = styled.input`
@@ -62,6 +88,7 @@ width: 380px;
 height: 30px;
 color: #363636;
 padding-left: 5px;
+outline: none;
 `;
 
 export const BtnPgListar = styled.button`

@@ -4,7 +4,7 @@ import {useHistory} from 'react-router-dom'
 
 import MenusBar from "../../Components/MenusBar/MenusBar";
 import { Container } from "../../Components/Container/Container";
-import { BtnPgListar, TblPgListar, TitleH3 } from './Style'
+import { BtnPgListar, TblPgListar, TitleH3, Body } from './Style'
 import api from "../../services/api";
 
 
@@ -48,7 +48,7 @@ export default function ListUsers (){
     },[])
 
     return(
-        <>
+        <Body>
         <MenusBar />
 
         <Container>
@@ -95,6 +95,6 @@ export default function ListUsers (){
 
        </Container>
             
-        </>
+        </Body>
     )
 }
