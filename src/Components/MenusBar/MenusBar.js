@@ -1,6 +1,7 @@
 import React from "react"
 import { NavLink } from "react-router-dom"
-import { SesaoTop, Menus } from "./Style"
+
+import { SesaoTop, Menus } from './Style'
 
 
 /* import Logo from "../../Imgs/LogoMeuDinheiro01.png" */
@@ -9,7 +10,7 @@ import { SesaoTop, Menus } from "./Style"
 
 
 export default function MenusBar(){
-
+        
     return(
         <SesaoTop >
             

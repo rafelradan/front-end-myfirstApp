@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import {useHistory} from 'react-router-dom'
+import { useEffect, useState} from "react";
+import {useHistory, useParams} from 'react-router-dom'
 
 import { Container } from "../../Components/Container/Container";
 import MaskedInp from "../../Components/MaskedInput/MaskedInput";
@@ -11,9 +11,9 @@ import { Frm, TitleH3, InpFrmCreate, BtnCreate, InpFrmCreateName, SelectFrmCreat
 
 
 
-export default function EditUser (props)  {
+export default function EditUser ()  {
     //Pegando o ID que foi enviado após cliclar no Btn Editar da pagina de listagem
-     const [id] =  useState(props.match.params.id) 
+      const {id} = useParams()
     
      const [name, setName] = useState('')
      const [cpf, setCpf] = useState('')
@@ -27,12 +27,12 @@ export default function EditUser (props)  {
      useEffect(() =>{
         async function oldUserValue() {
             //const res = await axios.get('https://first-api-rafael.herokuapp.com/users/'+id)
-               const user = await api.get('/users/'+id)
-               const userEdit = user.data
+               const res = await api.get('/users/'+id)
+               const userEdit = res.data
                setName(userEdit.name)
                setCpf(userEdit.cpf)
                setEmail(userEdit.email)
-               setCpf(userEdit.city)
+               setCity(userEdit.city)
                setGender(userEdit.gender)
                console.log(userEdit)
             }
@@ -52,6 +52,8 @@ export default function EditUser (props)  {
             
         }
 
+        console.log('CPF',cpf)   
+        
     return(
         <>
         
