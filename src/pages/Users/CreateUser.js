@@ -64,7 +64,7 @@ export default function CreateUser(){
 
                         <label> Genero</label> <br />
                         <SelectFrmCreate id="userGender" onChange={e => setGender(e.target.value)} > 
-                            <option SelectFrmCreateed selected disabled value={gender}  >Esolha aqui!</option>    
+                            <option SelectFrmCreateed selected disabled value={gender}  >Escolha aqui!</option>    
                             <option>Masculino</option>
                             <option>Feminino</option>
                         </SelectFrmCreate> <br /> <br />
