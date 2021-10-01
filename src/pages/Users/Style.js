@@ -10,6 +10,7 @@ background: linear-gradient(185deg, #d8f5ed, #044e2f);
 `;
 
 
+
 export const TitleH3 = styled.h3`
   font-size: 1.3em;
   color: 	#1C1C1C;
@@ -21,10 +22,9 @@ export const TitleH3 = styled.h3`
 export const TitleFrm = styled.h3`
   font-size: 1.3em;
   color: 	#1C1C1C;
-  margin-top: 15px;
-  margin-bottom: 30px;
-  margin-left: 19%;
- 
+  margin-top: 12px;
+  margin-bottom: 25px;
+    
 `;
 
 
@@ -41,6 +41,11 @@ export const Frm = styled.form`
     padding: 2rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
+`;
+
+export const TopFrm = styled.section`
+  text-align-last: center;
+    
 `;
 
 export const BtnCreate = styled.button`
@@ -108,7 +113,9 @@ border-radius: 4px;
 
 export const TblPgListar = styled.table`
   margin-top: 15px;
-  width: 100%;
+  margin-left: 20px;
+  margin-right: 20px;
+  width: 98%;
   overflow: hidden;
   /* box-shadow: 0 0 05px rgba(0, 0, 0, 015); */
    

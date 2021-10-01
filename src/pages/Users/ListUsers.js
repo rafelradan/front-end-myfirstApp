@@ -52,7 +52,7 @@ export default function ListUsers (){
         <MenusBar />
 
         <Container>
-            <TitleH3>Listar Usuários</TitleH3> 
+            <TitleH3>Usuários Cadastrados</TitleH3> 
 
             {
                 loading && <p>Carregando...</p>

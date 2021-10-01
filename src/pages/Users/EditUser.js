@@ -5,8 +5,9 @@ import { Container } from "../../Components/Container/Container";
 import MaskedInp from "../../Components/MaskedInput/MaskedInput";
 import MenusBar from "../../Components/MenusBar/MenusBar";
 import api from "../../services/api";
-import { Frm, TitleH3, InpFrmCreate, BtnCreate, InpFrmCreateName, SelectFrmCreate } from "./Style";
-
+import { Body, Frm, TitleFrm, InpFrmCreate, BtnCreate, InpFrmCreateName, SelectFrmCreate, TopFrm } from "./Style";
+import CadUserIco from "../../Imgs/CadUserIco.ico"
+import { ImgLogoIco } from "../Dashboard/Style"
 
 
 
@@ -55,12 +56,16 @@ export default function EditUser ()  {
         console.log('CPF',cpf)   
         
     return(
-        <>
+        <Body>
         
         <MenusBar />
             <Container>
                     <Frm  > 
-                        <TitleH3> Editar usuário </TitleH3>
+                        <TopFrm id="topFrm">
+                            <ImgLogoIco src={CadUserIco} alt='img' />
+                            <TitleFrm> Editar usuário </TitleFrm>
+                        </TopFrm>
+                        
                         
                         <label>Nome do Usuário</label> <br />
                         <InpFrmCreateName type= "text" name="inpUserName" id="inpUserName" value={name} onChange={e => setName(e.target.value)} /> <br />
@@ -88,6 +93,6 @@ export default function EditUser ()  {
             </Container>
 
 
-        </>
+        </Body>
     )
 }

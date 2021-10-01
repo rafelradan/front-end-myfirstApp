@@ -3,11 +3,13 @@ import { useState } from "react"
 import {useHistory} from 'react-router-dom'
 
 
-import { TitleFrm, Frm, BtnCreate, InpFrmCreate, SelectFrmCreate, InpFrmCreateName, Body } from './Style'
+import { TitleFrm, Frm, BtnCreate, InpFrmCreate, SelectFrmCreate, InpFrmCreateName, Body, TopFrm } from './Style'
 import MenusBar from "../../Components/MenusBar/MenusBar"
 import { Container } from "../../Components/Container/Container"
 import api from "../../services/api"
 import MaskedInp from "../../Components/MaskedInput/MaskedInput"
+import CadUserIco from "../../Imgs/CadUserIco.ico"
+import { ImgLogoIco } from "../Dashboard/Style"
 
 
 
@@ -42,7 +44,11 @@ export default function CreateUser(){
         <MenusBar />
             <Container>
                 <Frm onSubmit={handleGoToDashboard} > 
-                    <TitleFrm> Cadastrar um novo usuário </TitleFrm>
+
+                    <TopFrm id="topFrm">
+                        <ImgLogoIco src={CadUserIco} alt='img' />
+                        <TitleFrm> Cadastrar um novo usuário </TitleFrm>
+                    </TopFrm>
                     
                         <label>Nome</label> <br />
                         <InpFrmCreateName type= "text" name="inpUserName" id="inpUserName" value={name} onChange={e => setName(e.target.value)} /> <br />
