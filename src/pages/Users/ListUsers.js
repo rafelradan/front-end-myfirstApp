@@ -82,7 +82,7 @@ export default function ListUsers (){
                             <td>{user.city} </td>
                             <td>{user.gender} </td>
                             <td> 
-                                <BtnPgListar>Visualizar</BtnPgListar>
+                                {/* <BtnPgListar>Visualizar</BtnPgListar> */}
                                 <BtnPgListar onClick={() => goEdit(user.id)} > Editar</BtnPgListar>
                                 <BtnPgListar onClick={() => handleDeleteUser(user.id)} >Deletar</BtnPgListar>
                             </td>
