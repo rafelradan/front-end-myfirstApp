@@ -152,53 +152,70 @@ export const TblPgListar = styled.table`
   tbody tr td:nth-child(5){width:10%}
   tbody tr td:nth-child(5){width:10%} */
 
-  @media(max-width: 767px){
-    max-width: 300px;
-    margin: 10px auto;
-    thead{display: none}
-    tbody td{
-      display: flex; 
-      flex-direction: column;
-      border: none;
-      align-items: center;
+    @media(max-width: 767px){
+        
+        thead{
+          display: none
+        }
+
+        tbody, tr, td{
+          width: 98%;
+        }
+
+        tr{
+            margin-bottom: 10px;
+        }
+
+        td{
+          display: flex; 
+          flex-direction: column;
+          border: solid 0,5em;
+          align-items: center;
+          
+        }
+
+        /* td ::before{
+          content: attr(data-lable);
+          position: absolute;
+          left: 0;
+        } */
+
+        tr:nth-of-type(even){
+        background-color: #f5f5f3;
+
+        }
+    }
+  
+    th{    
+      background-color: #009879;
+      color: #f1f1f1;
+      padding: 3px;
       
     }
+
+    td{
+      color: #3e3e3e;
+      padding: 08px 08px;
+      border-bottom: solid 1px #dddddd;
+      font-size: 12px;
+    }
+
+    th:first-of-type{
+      border-radius: 05px 0px 0 0px;
+    }
+
+    th:last-of-type{
+      border-radius: 0px 5px 0 0px;
+    }
+
     tr:nth-of-type(even){
-    background-color: #f3f3f3;
-    /* opacity: 0.5; */
-    
-  }
-  }
-   
+      background-color: #f3f3f3;
+    }
+
+    tr:last-of-type{
+      border-bottom: solid 2px #009879;
+    }
   
-  th{    
-    background-color: #009879;
-    color: #f1f1f1;
-    padding: 3px;
-    
-  }
-  td{
-    color: #3e3e3e;
-    padding: 08px 08px;
-    border-bottom: solid 1px #dddddd;
-    font-size: 12px;
-  }
-
-  th:first-of-type{
-    border-radius: 05px 0px 0 0px;
-  }
-  th:last-of-type{
-    border-radius: 0px 5px 0 0px;
-  }
-
-  tr:nth-of-type(even){
-    background-color: #f3f3f3;
-  }
-
-  tr:last-of-type{
-    border-bottom: solid 2px #009879;;
-   }
-
 `;
 
 export const LogoImg = styled.img`
