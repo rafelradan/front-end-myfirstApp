@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const Body = styled.body`
 margin: 0;
 min-height: 100vh;
@@ -8,8 +7,6 @@ min-width: 100vw;
 background: linear-gradient(185deg, #d8f5ed, #044e2f);
 
 `;
-
-
 
 export const TitleH3 = styled.h3`
   font-size: 1.3em;
@@ -27,13 +24,12 @@ export const TitleFrm = styled.h3`
     
 `;
 
-
-
 export const Frm = styled.form`
     width: 450px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+    margin-bottom: 10px;
     /* border: solid 1px #1C1C1C; */
 
     background: white;
@@ -41,11 +37,15 @@ export const Frm = styled.form`
     padding: 2rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.5);
 
+    @media(max-width: 767px) {
+      width: 350px;
+  }
+
 `;
 
 export const TopFrm = styled.section`
   text-align-last: center;
-    
+
 `;
 
 export const BtnCreate = styled.button`
@@ -84,6 +84,12 @@ height: 30px;
 color: #363636;
 padding-left: 5px;
 outline: none;
+
+@media screen and (max-width: 767px){
+  font-size: .8em;
+  height: 25px;
+}
+
 `;
 
 export const InpFrmCreateName = styled.input`
@@ -94,6 +100,26 @@ height: 30px;
 color: #363636;
 padding-left: 5px;
 outline: none;
+
+@media screen and (max-width: 767px){
+  font-size: .8em;
+  width: 290px;
+  height: 25px;
+}
+`;
+
+export const SelectFrmCreate = styled.select`
+margin-bottom: 10px;
+font-size: 1em;
+width: 250px;
+height: 30px;
+color: #363636;
+
+@media screen and (max-width: 767px){
+  font-size: .8em;
+  height: 25px;
+}
+
 `;
 
 export const BtnPgListar = styled.button`
@@ -118,6 +144,31 @@ export const TblPgListar = styled.table`
   width: 98%;
   overflow: hidden;
   /* box-shadow: 0 0 05px rgba(0, 0, 0, 015); */
+  /* tbody tr td:nth-child(1){width:5%}
+  tbody tr td:nth-child(2){width:30%}
+  tbody tr td:nth-child(3){width:15%}
+  tbody tr td:nth-child(4){width:15%}
+  tbody tr td:nth-child(5){width:15%}
+  tbody tr td:nth-child(5){width:10%}
+  tbody tr td:nth-child(5){width:10%} */
+
+  @media(max-width: 767px){
+    max-width: 300px;
+    margin: 10px auto;
+    thead{display: none}
+    tbody td{
+      display: flex; 
+      flex-direction: column;
+      border: none;
+      align-items: center;
+      
+    }
+    tr:nth-of-type(even){
+    background-color: #f3f3f3;
+    /* opacity: 0.5; */
+    
+  }
+  }
    
   
   th{    
@@ -155,11 +206,9 @@ export const LogoImg = styled.img`
         
 `;
 
-export const SelectFrmCreate = styled.select`
-margin-bottom: 10px;
-font-size: 1em;
-width: 250px;
-height: 30px;
-color: #363636;
 
-`;
+
+
+
+
+

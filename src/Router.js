@@ -1,7 +1,7 @@
 import {Switch, Route} from 'react-router-dom'
 
 
-import Books from './pages/Books'
+import Contatos from './pages/Contatos/Contatos'
 import CreateUser from './pages/Users/CreateUser';
 import ListUsers from './pages/Users/ListUsers';
 import EditUser from './pages/Users/EditUser';
@@ -11,7 +11,7 @@ export default function Routes(){
     return(
         <Switch>
             <Route path='/' exact component={Dashboard} />
-            <Route path='/books'  component={Books} />
+            <Route path='/contatos'  component={Contatos} />
             <Route path='/dashboard'  component={Dashboard} />
             <Route path='/createuser' component={CreateUser} />
             <Route path='/listusers' component={ListUsers} />

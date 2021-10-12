@@ -16,6 +16,7 @@ export default function MenusBar(){
                 <NavLink to='/dashboard' > <li> Dashboard</li> </NavLink>
                 <NavLink to='/createuser' > <li>Cadastrar Usuários</li> </NavLink>
                 <NavLink to='/listusers' > <li> Listar Usuários</li> </NavLink>
+                <NavLink to='/contatos' > <li> Contatos</li> </NavLink>
             </Menus> 
             {/* <img src={Logo} alt='logo' /> */}
         </>    

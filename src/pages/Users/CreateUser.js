@@ -10,6 +10,7 @@ import api from "../../services/api"
 import MaskedInp from "../../Components/MaskedInput/MaskedInput"
 import CadUserIco from "../../Imgs/CadUserIco.ico"
 import { ImgLogoIco } from "../Dashboard/Style"
+import Footer from "../../Components/Footer/Footer"
 
 
 
@@ -73,7 +74,9 @@ export default function CreateUser(){
                         <br /> <br />
 
                 </Frm>
+                
             </Container>
+            <Footer />
         </Body>
     )
     

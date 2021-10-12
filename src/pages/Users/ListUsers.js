@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import {useHistory} from 'react-router-dom'
 
-
 import MenusBar from "../../Components/MenusBar/MenusBar";
 import { Container } from "../../Components/Container/Container";
 import { BtnPgListar, TblPgListar, TitleH3, Body } from './Style'
 import api from "../../services/api";
-
-
 
 export default function ListUsers (){
     const [users, setUsers] = useState([])
@@ -94,7 +91,6 @@ export default function ListUsers (){
             </TblPgListar>
 
        </Container>
-            
         </Body>
     )
 }
